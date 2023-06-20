@@ -13,6 +13,7 @@ for (let index = 0; index < windowClose.length; index++) {
 
 for (let index = 0; index < windowShow.length; index++) {
     windowShow[index].onclick = () => {
+        windowModal.className = "modal"
         document.getElementById('modal_success').className = "modal modal_active"
     }
 }
