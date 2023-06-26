@@ -17,14 +17,12 @@ class Game {
   }
 
   registerEvents() {
-    const current = this.currentSymbol
-    const success = this.success
-    const fail = this.fail
-      function testKey(event) {
-      if (event.key != current.textContent) {fail()}
-      else {success()}
+     document.onkeydown = (event) => {
+      if (event.key.toLowerCase() != this.currentSymbol.textContent) {
+        this.fail()
+      }
+      else {this.success()}
     }
-    document.onkeydown = testKey
   }
 
   success() {
