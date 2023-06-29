@@ -81,6 +81,7 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
+      console.log(this.input)
     return [
       {
         text: 'Чубакка',
