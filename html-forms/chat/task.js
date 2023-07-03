@@ -9,14 +9,16 @@ const replies = [
 const inputBlock = document.getElementById("chat-widget__input")
 inputBlock.addEventListener('keydown', (event) => {
     if (event.key == 'Enter') {
-        if (inputBlock.value != "") {
+        let textInput = inputBlock.value.trim()
+        if (textInput != "") {
+            console.log(textInput)
             let timer = new Date().toTimeString().slice(0,5)
             const messages = document.querySelector( '.chat-widget__messages' )
             messages.innerHTML += `
             <div class="message message_client">
                 <div class="message__time">${timer}</div>
                 <div class="message__text">
-                ${inputBlock.value}
+                ${textInput}
                 </div>
             </div>
             <div class="message">
@@ -27,5 +29,6 @@ inputBlock.addEventListener('keydown', (event) => {
             </div>
             `;
         }
+        inputBlock.value = ""
     }
 })
