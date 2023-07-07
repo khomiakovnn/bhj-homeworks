@@ -38,17 +38,24 @@ addButtons.forEach(element => {
         divProd.insertAdjacentElement("beforeend", imgProd)
         divProd.insertAdjacentElement("beforeend", divCount)
 
-        let checkProduct = false
-        Array.from(cartProducts).forEach(element => {
-            if (element.attributes[1].value == idProd) {
-                element.firstElementChild.nextElementSibling.textContent = Number(element.firstElementChild.nextElementSibling.textContent) + countProd
-                checkProduct = true
-            }
-        });
+        // let checkProduct = false
+        // Array.from(cartProducts).forEach(element => {
+        //     if (element.attributes[1].value == idProd) {
+        //         element.firstElementChild.nextElementSibling.textContent = Number(element.firstElementChild.nextElementSibling.textContent) + countProd
+        //         checkProduct = true
+        //     }
+        // });
 
-        if (!checkProduct) {
+        // if (!checkProduct) {
+        //     cart.insertAdjacentElement("beforeend", divProd)
+        // }
+        const productInCard = Array.from(cartProducts).find(elem => elem.attributes[1].value == idProd)
+        if (productInCard) {
+            productInCard.firstChild.nextElementSibling.textContent = Number(productInCard.textContent) + countProd
+        } else {
             cart.insertAdjacentElement("beforeend", divProd)
-        }     
+            
+        }
     }
 });
 
